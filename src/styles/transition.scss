@@ -1,0 +1,22 @@
+//globl transition css
+
+/*fade*/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.28s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+/*fade*/
+.fadelow-enter-active,
+.fadelow-leave-active {
+  transition: opacity .8s ease-out;
+}
+
+.fadelow-enter,
+.fadelow-leave-active {
+  opacity: 0;
+}
