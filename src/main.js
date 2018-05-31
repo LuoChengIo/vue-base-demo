@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import promise from 'es6-promise'
 promise.polyfill()
+import 'babel-polyfill'
 import Vue from 'vue'
 import 'normalize.css/normalize.css'// A modern alternative to CSS resets
 

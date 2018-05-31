@@ -1,104 +1,60 @@
-/* 全局通用style */
-//字体设置
-
-body {
-    height: 100%;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    font-family:-apple-system,"Microsoft Yahei","Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
-  }
-  
-html {
-    height: 100%;
-    box-sizing: border-box;
+/* reset */
+html * {
+    outline:none;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
-
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family:-apple-system,"Microsoft Yahei","Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+}
+body{
+    font-size: 1.4rem; 
+    line-height: 1.5; 
+    color: #333333; 
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
-
-body,
-div,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-pre,
-code,
-form,
-fieldset,
-legend,
-input,
-textarea,
-p,
-blockquote,
-th,
-td,
-hr,
-button,
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     margin: 0;
     padding: 0;
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
+/* 去掉各 Table  cell 的边距并让其边重合 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-div:focus {
-    outline: none;
-}
-/*input框点击时蓝色方框消失*/
-input:focus {
-    outline:none;
-}
-a:focus,
-a:active {
-    outline: none;
+/* 去除默认边框 */
+fieldset, img {
+    border: 0;
 }
 
-a,
-a:focus,
-a:hover {
-    cursor: pointer;
-    color: inherit;
-    text-decoration: none;
-}
-
-.clearfix {
-    &:after {
-        visibility: hidden;
-        display: block;
-        font-size: 0;
-        content: " ";
-        clear: both;
-        height: 0;
-    }
-}
-ul,ol,li{
+/* 去掉列表前的标识, li 会继承 */
+ol, ul {
     list-style: none;
 }
-/* Prettier Links */
-a.udl-h:hover{text-decoration: underline;}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+    text-align: left;
+}
+
+
+q:before, q:after {
+    content: '';
+}
+/* 正常链接 未访问 */
+a:link {
+}
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+    text-decoration: none;
+}
 /* ---------------------single CSS----------------------- */
 /* display */
 .di { display: inline; }
@@ -106,27 +62,12 @@ a.udl-h:hover{text-decoration: underline;}
 .dib { display: inline-block; } /* if the element is block level(eg. div, li), using 'inline-any' instead */
 .dn { display: none; }
 /* height */
-.h14 { height: 14px; }
-.h16 { height: 16px; }
-.h18 { height: 18px; }
-.h20 { height: 20px; }
-.h22 { height: 22px; }
-.h24 { height: 24px; }
-.h40 { height: 40px; }
 .hp100{height: 100%;}
 /* width */
 /* fixed width value */
 .w1 { width: 1px; }
-.w20 { width: 20px; }
-.w30 { width: 30px; }
-.w40 { width: 40px; }
-.w100 { width: 100px; }
-.w220 { width: 220px; }
 .w1200 { width: 1200px; }
 /* percent width value */
-.pct10 { width: 10%; }
-.pct13 { width: 13%; }
-.pct15 { width: 15%; }
 .pct20 { width: 20%; }
 .pct25 { width: 25%; }
 .pct30 { width: 30%; }
@@ -134,170 +75,85 @@ a.udl-h:hover{text-decoration: underline;}
 .pct40 { width: 40%; }
 .pct499{ width: 49.9%; }
 .pct50 { width: 50%; }
-.pct60 { width: 60%; }
-.pct62 { width: 62%; }
-.pct66 { width: 66.6%; }
-.pct70 { width: 70%; }
-.pct75 { width: 75%; }
-.pct80 { width: 80%; }
-.pct90 { width: 90%; }
 .pct100 { width: 100%; }
 /* line-height */
 .lhp15{line-height: 1.5;}
 .lhp2{line-height: 2;}
 /* margin */
-.m0 { margin: 0; }
-.m50{ margin: 50px;}
-.ml1 { margin-left: 1px; }
-.ml2 { margin-left: 2px; }
-.ml5 { margin-left: 5px; }
-.ml10 { margin-left: 10px; }
-.ml15 { margin-left: 15px; }
-.ml20 { margin-left: 20px; }
-.ml23 { margin-left: 23px; }
-.ml30 { margin-left: 30px; }
-.ml40 { margin-left: 40px; }
-.mr1 { margin-right: 1px; }
-.mr2 { margin-right: 2px; }
-.mr5 { margin-right: 5px; }
-.mr10 { margin-right: 10px; }
-.mr15 { margin-right: 15px; }
-.mr20 { margin-right: 20px; }
-.mr30 { margin-right: 30px; }
-.mr40 { margin-right: 40px; }
-.mr60 { margin-right: 60px; }
-.mt1 { margin-top: 1px; }
-.mt2 { margin-top: 2px; }
-.mt5 { margin-top: 5px; }
-.mt10 { margin-top: 10px; }
-.mt15 { margin-top: 15px; }
-.mt20 { margin-top: 20px; }
-.mt30 { margin-top: 30px; }
-.mt40 { margin-top: 40px; }
-.mt50 { margin-top: 50px; }
-.mb1 { margin-bottom: 1px; }
-.mb2 { margin-bottom: 2px; }
-.mb5 { margin-bottom: 5px; }
-.mb10 { margin-bottom: 10px; }
-.mb15 { margin-bottom: 15px; }
-.mb20 { margin-bottom: 20px; }
-.mb30 { margin-bottom: 30px; }
-.mb35 { margin-bottom: 35px; }
-.mb40 { margin-bottom: 40px; }
-.mb50 { margin-bottom: 50px; }
-.mb60 { margin-bottom: 60px; }
-.mb70 { margin-bottom: 70px; }
-/* margin negative */
-.ml-1 { margin-left: -1px; }
-.mr-1 { margin-right: -1px; }
-.mt-1 { margin-top: -1px; }
-.mb-1 { margin-bottom: -1px; }
-.ml-3 { margin-left: -3px; }
-.mr-3 { margin-right: -3px; }
-.mt-3 { margin-top: -3px; }
-.mb-3 { margin-bottom: -3px; }
-.ml-20 { margin-left: -20px; }
-.mr-20 { margin-right: -20px; }
-.mt-20 { margin-top: -20px; }
-.mb-20 { margin-bottom: -20px; }
+.m0 { margin: 0 !important; }
+.m5{margin: 5px;}
+.ml5{margin-left: 5px;}
+.mr5{margin-right: 5px;}
+.mt5{margin-top: 5px;}
+.mb5{margin-bottom: 5px;}
+.m10{margin: 10px;}
+.ml10{margin-left: 10px;}
+.mr10{margin-right: 10px;}
+.mt10{margin-top: 10px;}
+.mb10{margin-bottom: 10px;}
+.m15{margin: 15px;}
+.ml15{margin-left: 15px;}
+.mr15{margin-right: 15px;}
+.mt15{margin-top: 15px;}
+.mb15{margin-bottom: 15px;}
+.m20{margin: 20px;}
+.ml20{margin-left: 20px;}
+.mr20{margin-right: 20px;}
+.mt20{margin-top: 20px;}
+.mb20{margin-bottom: 20px;}
+.m25{margin: 25px;}
+.ml25{margin-left: 25px;}
+.mr25{margin-right: 25px;}
+.mt25{margin-top: 25px;}
+.mb25{margin-bottom: 25px;}
+.m30{margin: 30px;}
+.ml30{margin-left: 30px;}
+.mr30{margin-right: 30px;}
+.mt30{margin-top: 30px;}
+.mb30{margin-bottom: 30px;}
 /* padding */
 .p0 { padding: 0; }
 .p1 { padding: 1px; }
-.pl1 { padding-left: 1px; }
-.pt1 { padding-top: 1px; }
-.pr1 { padding-right: 1px; }
-.pb1 { padding-bottom: 1px; }
-.p2 { padding: 2px; }
-.pl2 { padding-left: 2px; }
-.pt2 { padding-top: 2px; }
-.pr2 { padding-right: 2px; }
-.pb2 { padding-bottom: 2px; }
-.pl5 { padding-left: 5px; }
-.p5 { padding: 5px; }
-.pt5 { padding-top: 5px; }
-.pr5 { padding-right: 5px; }
-.pb5 { padding-bottom: 5px; }
-.p10 { padding: 10px; }
-.pl10 { padding-left: 10px; }
-.pt10 { padding-top: 10px; }
-.pr10 { padding-right: 10px; }
-.pb10 { padding-bottom: 10px; }
-.p11 { padding: 11px; }
-.pl11 { padding-left: 12px; }
-.pt11 { padding-top: 12px; }
-.pr11 { padding-right: 12px; }
-.pb11 { padding-bottom: 12px; }
-.p12 { padding: 12px; }
-.pl12 { padding-left: 12px; }
-.pt12 { padding-top: 12px; }
-.pr12 { padding-right: 12px; }
-.pb12 { padding-bottom: 12px; }
-.p15 { padding: 15px; }
-.pl15 { padding-left: 15px; }
-.pt15 { padding-top: 15px; }
-.pr15 { padding-right: 15px; }
-.pb15 { padding-bottom: 15px; }
-.p20 { padding: 20px; }
-.pl20 { padding-left: 20px; }
-.pt20 { padding-top: 20px; }
-.pr20 { padding-right: 20px; }
-.pb20 { padding-bottom: 20px; }
-.p25 { padding: 25px; }
-.pl25 { padding-left: 25px; }
-.pt25 { padding-top: 25px; }
-.pr25 { padding-right: 25px; }
-.pb25 { padding-bottom: 25px; }
-.p30 { padding: 30px; }
-.pl30 { padding-left: 30px; }
-.pt30 { padding-top: 30px; }
-.pr30 { padding-right: 30px; }
-.pb30 { padding-bottom: 30px; }
-.p40 { padding: 40px; }
-.pl40 { padding-left: 40px; }
-.pt40 { padding-top: 40px; }
-.pr40 { padding-right: 40px; }
-.pb40 { padding-bottom: 40px; }
-.pb100 { padding-bottom: 100px; }
-.pt60{padding-top: 60px;}
-.plr90{padding-left: 90px; padding-right: 90px;}
-
-/* border-color name rule:  border(b)-position(l/r/t/b/d)-width(null/2)-style(null/sh)-color(first one letter/first two letter) |-> All colors are safe color*/
-.border { border: 1px solid $ccut; }
-.border-left { border-left: 1px solid $ccut; }
-.border-right { border-right: 1px solid $ccut; }
-.border-top { border-top: 1px solid $ccut; }
-.border-bottom { border-bottom: 1px solid $ccut; }
-/* safe color */
-/*主色 重点标识*/
-.cmain{color: $cmain;}
-/*辅助色 警示*/
-.cwarning{color: $cwarning;}
-/*辅助色 安全*/
-.csafe{color: $csafe;}
-/*辅助色 慎重*/
-.ccareful{color: $ccareful;}
-/*文字主色 标题内容 图标*/
-.cfmain{color: $cfmain;}
-/*文字辅色 说明 图标*/
-.cfassist{color: $cfassist;}
-/*文字辅色 提示*/
-.cfhint{color: $cfhint;}
-/*白色背景色*/
-.cbwhite{background-color: $cbwhite;}
-/*灰色背景色*/
-.cbgrey{background-color: $cbgrey;}
-/*分割线用色*/
-.ccut{color: $ccut;}
-// 文本颜色
-.text-primary{ color: $cmain;}
-.text-secondary{ color: $cmain;}
-.text-success{ color: $csafe;}
-.text-danger{ color: $ccareful;}
-.text-warning{ color: $cwarning;}
-.text-info{ color: $cfassist;}/*文字辅色 说明 图标*/
-.text-light{ color: $cfhint;}/*文字辅色 提示*/
-.text-dark{ color: $cfmain;}/*文字主色 标题内容 图标*/
-.text-white{ color: #fff;}
+.p5{padding: 5px;}
+.pl5{padding-left: 5px;}
+.pr5{padding-right: 5px;}
+.pt5{padding-top: 5px;}
+.pb5{padding-bottom: 5px;}
+.p10{padding: 10px;}
+.pl10{padding-left: 10px;}
+.pr10{padding-right: 10px;}
+.pt10{padding-top: 10px;}
+.pb10{padding-bottom: 10px;}
+.p15{padding: 15px;}
+.pl15{padding-left: 15px;}
+.pr15{padding-right: 15px;}
+.pt15{padding-top: 15px;}
+.pb15{padding-bottom: 15px;}
+.p20{padding: 20px;}
+.pl20{padding-left: 20px;}
+.pr20{padding-right: 20px;}
+.pt20{padding-top: 20px;}
+.pb20{padding-bottom: 20px;}
+.p25{padding: 25px;}
+.pl25{padding-left: 25px;}
+.pr25{padding-right: 25px;}
+.pt25{padding-top: 25px;}
+.pb25{padding-bottom: 25px;}
+.p30{padding: 30px;}
+.pl30{padding-left: 30px;}
+.pr30{padding-right: 30px;}
+.pt30{padding-top: 30px;}
+.pb30{padding-bottom: 30px;}
+/* 文本颜色 */
+.text-primary{ color: $primary}
+.text-secondary{ color: $secondary}
+.text-success{ color: $success;}
+.text-danger{ color: $danger;}
+.text-warning{ color: $warning}
+.text-info{ color: $info}
+.text-light{ color: $light}
+.text-dark{ color: $dark}
+.text-white{ color: $white;}
 /* font-size */
 .f0 { font-size: 0; }
 .f10 { font-size: 10px; }
@@ -311,14 +167,6 @@ a.udl-h:hover{text-decoration: underline;}
 .f26 { font-size: 26px; }
 .f30 { font-size: 30px; }
 .f36 { font-size: 36px; }
-.f40 { font-size: 40px; }
-/* font-family */
-.fa { font-family: Arial; }
-.ft { font-family: Tahoma; }
-.fv { font-family: Verdana; }
-.fs { font-family: Simsun; }
-.fl { font-family: 'Lucida Console'; }
-.fw { font-family: 'Microsoft Yahei'; }
 /* font-style */
 .n { font-weight: normal; font-style: normal; }
 .b { font-weight: bold; }
@@ -369,14 +217,7 @@ a.udl-h:hover{text-decoration: underline;}
 .z { *zoom: 1; }
 /* ------------------- multiply CSS ------------------ */
 /* 块状元素水平居中 */
-.auto { margin-left: auto; margin-right: auto; }
-/* 清除浮 动*/
-.fix { *zoom: 1; }
-.fix:after { display: table; content: ''; clear: both; }
-/* 基于display: table-cell的自适应布局 */
-.cell { display: table-cell; *display: inline-block; width: 2000px; *width: auto; }
-/* 双栏自适应cell部分连续英文字符换行 */
-.cell-bk { display: table; width: 100%; table-layout: fixed; word-wrap: break-word; }
+.auto { margin-left: auto!important; margin-right: auto!important; }
 /* 单行文字溢出虚点显 示*/
 .ell { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 /* css3过渡动画效果 */
@@ -384,10 +225,6 @@ a.udl-h:hover{text-decoration: underline;}
     -webkit-transition: all 0.3s;   
     transition: all 0.3s; 
 }
-/* 大小不定元素垂直居中 */
-.dib-vm { display: inline-block; width: 0; height: 100%; vertical-align: middle; }
-/* 加载中背景图片 - 如果您使用该CSS小库，务必修改此图片地址 */
-// .loading {background: url(loading.gif)no-repeat center;}
 /* 无框文本框文本域 */
 .bd-none { border: 0; outline: none; }
 /* 绝对定位隐藏 */
@@ -403,25 +240,26 @@ a.udl-h:hover{text-decoration: underline;}
 .inline-five, .float-five { width: 19.9%; }
 .inline-six, .float-six { width: 16.6%; }
 .inline-fix { display: inline-block; width: 100%; height: 0; overflow: hidden; }
-.bd-radius {-moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px;}
-a{text-decoration: none;}
-a:-webkit-any-link {text-decoration: none!important;}
-p{margin: 0px;}
-
-#nprogress .bar {
-    background: $cmain !important;
+/*清除浮动*/
+.clearfix:after { content:".";font-size: 0; display:block; height:0; visibility:hidden; clear:both; }
+.clearfix { zoom:1; }
+/* Prettier Links */
+a.udl-h:hover{text-decoration: underline;}
+/*当a元素没有文本值，但 href 属性有链接的时候显示链接：*/
+a[href^="http"]:empty::before {content: attr(href);}
+/* CSS3 新增的 pointer-events 让你能够禁用元素的鼠标事件，例如，一个连接如果设置了下面的样式就无法点击了。 */
+.disabled { pointer-events: none; }
+/* 解决行内块级元素之间的间距 */
+.zero-spacing{
+  letter-spacing: -4px;/*根据不同字体字号或许需要做一定的调整*/
+  word-spacing: -4px;
+  font-size: 0;
 }
-// 图片选中显示
-.icon-hover{
-    transition: all .4s;
-    cursor: pointer;
-    &:hover{
-        color: $cmain;
-    }
-}
-
-// 高度60  行高60
-.lh60{
-    height: 60px;
-    line-height: 60px;
+.zero-spacing .dib-s {
+  font-size: 16px;
+  letter-spacing: normal;
+  word-spacing: normal;
+  display:inline-block;
+  *display: inline;
+  zoom:1;
 }
