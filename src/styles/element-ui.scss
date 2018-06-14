@@ -1,1 +1,13 @@
  //to reset element-ui default css
+ .box-wrap{
+    height: 100px;
+  .live-srollbar{
+    height: 100%;
+  }
+  .el-scrollbar__wrap{
+    overflow-x: auto;
+  }
+  .el-scrollbar__view{
+    min-height: 100%
+  }
+}
