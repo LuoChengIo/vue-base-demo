@@ -11,4 +11,9 @@ export default {
 </script>
 
 <style>
+html,body,#app{
+  position: relative;
+  height: 100%;
+  overflow-y: hidden;
+}
 </style>

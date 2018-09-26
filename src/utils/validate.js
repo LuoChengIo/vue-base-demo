@@ -30,4 +30,33 @@ export function validatAlphabets(str) {
   const reg = /^[A-Za-z]+$/
   return reg.test(str)
 }
-
+/* 数字验证*/
+export function validatNumber(str) {
+  const reg = /^[0-9]*$/
+  return reg.test(str)
+}
+/* 中文验证*/
+export function validatChinese(str) {
+  const reg = /^[\\u4e00-\\u9fa5]{0,}$/
+  return reg.test(str)
+}
+/* 手机号码检验*/
+export function validatTel(str) {
+  const reg = /^1[3-9]\d{9}$/
+  return reg.test(str)
+}
+/* 身份证号检验*/
+export function validatIdCard(str) {
+  const reg = /^(\d{15}$|^\d{18}$|^\d {17}(\d|X|x))$/
+  return reg.test(str)
+}
+/* 邮箱检验*/
+export function validatEmail(str) {
+  const reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+  return reg.test(str)
+}
+/* 金额检验*/
+export function validatAmt(str) {
+  const reg = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/
+  return reg.test(str)
+}

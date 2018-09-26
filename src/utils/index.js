@@ -1,20 +1,25 @@
-/**
- * Created by jiachenpan on 16/11/18.
- */
-export const baseImgURL = process.env.BASE_IMG
+
+export const baseImgURL = process.env.BASE_API
 export const baseURL = process.env.BASE_API
 // import FileSaver from 'file-saver'
 export function parseTime(time, cFormat) {
   if (arguments.length === 0) {
     return null
   }
+  if (!time) {
+    return
+  }
   const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
   let date
   if (typeof time === 'object') {
     date = time
   } else {
-    if (('' + time).length === 10) time = parseInt(time) * 1000
-    date = new Date(time)
+    if (isNaN(Number(time))) {
+      date = new Date(time)
+    } else {
+      if (('' + time).length === 10) time = parseInt(time) * 1000
+      date = new Date(time)
+    }
   }
   const formatObj = {
     y: date.getFullYear(),
@@ -155,6 +160,16 @@ export function scrollTo(element, to, duration) {
     scrollTo(element, to, duration - 10)
   }, 10)
 }
+/**
+ * 将input file转化成formData对象
+ * @param file: Object
+ * @return Object FormData对象
+ */
+export function getFileFormData(file) {
+  const fd = new FormData()
+  fd.append(file.files[0].name, file.files[0])
+  return fd
+}
 
 export function toggleClass(element, className) {
   if (!element || !className) {
@@ -273,16 +288,7 @@ export function supportBlob() {
   }
   return isFileSaverSupported
 }
-/**
- * 将input file转化成formData对象
- * @param file: Object
- * @return Object FormData对象
- */
-export function getFileFormData(file) {
-  const fd = new FormData()
-  fd.append(file.files[0].name, file.files[0])
-  return fd
-}
+
 /**
  * 发送文件时截取后缀名作为拓展字段
  * @param name string

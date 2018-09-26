@@ -1,28 +1,4 @@
 @import './variables.scss';
 @import './mixin.scss';
 @import './transition.scss';
-@import './element-ui.scss';
 @import './base.scss';
-//main-container全局样式
-#app{
-  height: 100%
-}
-.app-main{
-  min-height: 100%
-}
-
-.app-container {
-  padding: 20px;
-}
-.box-wrap{
-    height: 100px;
-  .live-srollbar{
-    height: 100%;
-  }
-  .el-scrollbar__wrap{
-    overflow-x: auto;
-  }
-  .el-scrollbar__view{
-    min-height: 100%
-  }
-}

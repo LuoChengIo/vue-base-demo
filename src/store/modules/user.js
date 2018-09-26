@@ -1,14 +1,11 @@
 import { login, logout, getInfo } from '@/api/login'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getToken, setToken, setUserInfo, removeToken } from '@/utils/auth'
 
 const user = {
   // namespaced: true,未使用命名空间，mutations，actions请不要重名
   state: {
     token: getToken(),
-    name: '',
-    avatar: '',
-    depments: [],
-    jobs: [],
+    userinfo: '',
     roles: [],
     allroles: []
   },
@@ -17,23 +14,27 @@ const user = {
     SET_TOKEN: (state, token) => {
       state.token = token
     },
-    SET_NAME: (state, name) => {
-      state.name = name
+    SET_USERINFO: (state, userinfo) => {
+      state.userinfo = userinfo
     },
-    SET_AVATAR: (state, avatar) => {
-      state.avatar = avatar
+    SET_ROLES: (state, roles) => {
+      state.roles = roles
     }
   },
 
   actions: {
+    setLoginInfo({ commit }, userInfo) {
+      commit('SET_USERINFO', userInfo)
+    },
     // 登录
     Login({ commit }, userInfo) {
-      const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
-        login(username, userInfo.password).then(response => {
+        login(userInfo).then(response => {
           const data = response.data
-          setToken(data.token)
-          commit('SET_TOKEN', data.token)
+          setToken(data.accessToken)
+          commit('SET_TOKEN', data.accessToken)
+          setUserInfo(data)
+          commit('SET_USERINFO', data)
           resolve()
         }).catch(error => {
           reject(error)

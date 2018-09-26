@@ -1,14 +1,150 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="renderer" content="webkit"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>vue-demo</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>数字钱包BI系统</title>
+  <style>
+    .browser-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      background: #fff;
+    }
+
+    .browser-ct {
+      width: 800px;
+      margin: 10% auto;
+    }
+
+    .browser-ct .warn {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 75px;
+      width: 179px;
+    }
+
+    .browser-tip {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 75px;
+    }
+
+    .clearfix:after {
+      content: ".";
+      font-size: 0;
+      display: block;
+      height: 0;
+      visibility: hidden;
+      clear: both;
+    }
+
+    .clearfix {
+      zoom: 1;
+    }
+
+    .browser-list {
+      text-align: center;
+    }
+
+    .browser-list .left {
+      position: relative;
+      float: left;
+    }
+
+    .browser-list .left:after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      right: 0;
+      width: 1px;
+      height: 50px;
+      margin-top: -25px;
+      background-color: #f1f1f1;
+    }
+
+    .browser-list .right {
+      float: left;
+    }
+
+    .browser-list img {
+      display: block;
+      margin: 0 auto;
+      width: 74PX;
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    .browser-list a {
+      display: block;
+      width: 400px;
+      text-align: center;
+      color: #3e7ac2;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="browserLt" class="browser-bg" style="display: none">
+    <div class="browser-ct">
+      <img class="warn" src="/static/img/brt-tip.png" alt="" srcset="">
+      <p class="browser-tip">你正在使用的浏览器版本过低，将不能正常浏览和使用系统。</p>
+      <div class="browser-list clearfix">
+        <a class="left" href="https://www.microsoft.com/zh-cn/download/internet-explorer.aspx">
+          <img src="/static/img/IE.png" alt="">
+          <div>升级你的ie</div>
+        </a>
+        <a class="right" href="http://www.google.com/chrome/">
+          <img style="width: 121px;" src="/static/img/chrome.jpg" alt="">
+          <div>使用 Google Chrome 浏览器</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+<script>
+    var isIE = (function() {
+      var browser = {}
+      return function(ver, c) {
+        var key = ver ? (c ? 'is' + c + 'IE' + ver : 'isIE' + ver) : 'isIE'
+        var v = browser[key]
+        if (typeof (v) !== 'undefined') {
+          return v
+        }
+        if (!ver) {
+          v = (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0)
+        } else {
+          var match = navigator.userAgent.match(/(?:MSIE |Trident\/.* rv:|Edge\/)(\d+)/)
+          if (match) {
+            var v1 = parseInt(match[1])
+            v = c ? (c === 'lt' ? v1 < ver : (c === 'gt' ? v1 > ver : undefined)) : v1 === ver
+          } else if (ver <= 9) {
+            var b = document.createElement('b')
+            var s = '<!--[if ' + (c ? c : '') + ' IE ' + ver + ']><i></i><![endif]-->'
+            b.innerHTML = s
+            v = b.getElementsByTagName('i').length === 1
+          } else {
+            v = false
+          }
+        }
+        browser[key] = v
+        return v
+      }
+    }())
+    if (isIE(10, 'lt')) {
+      document.getElementById('browserLt').style.display = 'block'
+    }
+  </script>
 </html>
